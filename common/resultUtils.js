@@ -1,8 +1,8 @@
 function outputResults(benchmark, benchmarkResults) {
     console.log(
         `Mean time for ${
-            benchmark.benchmarkEntryName
-        } is ${benchmarkResults.meanTime.getTimeInNanoSeconds()} nanoseconds`
+            benchmark.name
+        } is ${benchmarkResults.meanTime.getTimeInNanoSeconds()}`
     );
 }
 

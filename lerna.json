@@ -1,9 +1,6 @@
 {
   "packages": [
-    "dto",
-    "string-matching",
-    "loops",
-    "xml"
+    "dto"
   ],
   "version": "independent"
 }
