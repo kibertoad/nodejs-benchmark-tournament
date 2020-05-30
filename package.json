@@ -1,0 +1,22 @@
+{
+  "name": "nodejs-benchmark-tournament",
+  "private": true,
+  "version": "1.0.0",
+  "license": "MIT",
+  "scripts": {
+    "test": "lerna run test",
+    "lint": "lerna run lint",
+    "test:ci": "lerna run test:ci",
+    "prettier": "lerna run prettier && prettier common"
+  },
+  "devDependencies": {
+    "lerna": "^3.22.0",
+    "prettier": "^2.0.5"
+  },
+  "workspaces": {
+    "packages": [
+      "dto"
+    ],
+    "nohoist": []
+  }
+}
