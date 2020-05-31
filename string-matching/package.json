@@ -1,0 +1,19 @@
+{
+  "name": "string-matching",
+  "version": "1.0.0",
+  "license": "MIT",
+  "dependencies": {
+    "getopts": "^2.2.5",
+    "photofinish": "^1.1.0",
+    "validation-utils": "^4.0.2"
+  },
+  "devDependencies": {
+    "prettier": "^2.0.5"
+  },
+  "scripts": {
+    "benchmark-includes": "node ./executioner.js -c _includes",
+    "benchmark-indexof": "node ./executioner.js -c _indexof",
+    "benchmark-regex": "node ./executioner.js -c _regex",
+    "prettier": "prettier --write \"contestants/**/*.{js,ts}\" executioner.js"
+  }
+}

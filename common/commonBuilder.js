@@ -3,8 +3,7 @@ const { BenchmarkBuilder } = require("photofinish");
 function getBuilder() {
   const builder = new BenchmarkBuilder();
   return builder
-    .name("Classes")
-    .warmupCycles(1000)
+    .warmupCycles(10000)
     .benchmarkCycles(100000)
     .benchmarkCycleSamples(50);
 }
