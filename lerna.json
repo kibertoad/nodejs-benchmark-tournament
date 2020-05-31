@@ -1,6 +1,7 @@
 {
   "packages": [
-    "dto"
+    "dto",
+    "string-matching"
   ],
   "version": "independent"
 }
