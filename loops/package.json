@@ -1,0 +1,21 @@
+{
+  "name": "loops",
+  "version": "1.0.0",
+  "license": "MIT",
+  "dependencies": {
+    "getopts": "^2.2.5",
+    "photofinish": "^1.1.0",
+    "validation-utils": "^4.0.2"
+  },
+  "devDependencies": {
+    "prettier": "^2.0.5"
+  },
+  "scripts": {
+    "benchmark-foreach": "node ./executioner.js -c _foreach",
+    "benchmark-forin": "node ./executioner.js -c _forin",
+    "benchmark-forloop": "node ./executioner.js -c _forloop",
+    "benchmark-forloopcached": "node ./executioner.js -c _forloopcached",
+    "benchmark-forof": "node ./executioner.js -c _forof",
+    "prettier": "prettier --write \"contestants/**/*.{js,ts}\" executioner.js"
+  }
+}
