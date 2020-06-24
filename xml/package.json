@@ -1,0 +1,24 @@
+{
+  "name": "xml",
+  "version": "1.0.0",
+  "license": "MIT",
+  "dependencies": {
+    "getopts": "^2.2.5",
+    "js2xmlparser": "^4.0.1",
+    "photofinish": "^1.1.0",
+    "validation-utils": "^4.0.2",
+    "xml": "^1.0.1",
+    "xml2js": "^0.4.23",
+    "xmlbuilder": "^15.1.1",
+    "xml-js": "^1.6.11"
+  },
+  "devDependencies": {
+    "prettier": "^2.0.5"
+  },
+  "scripts": {
+    "benchmark-includes": "node ./executioner.js -c _includes",
+    "benchmark-indexof": "node ./executioner.js -c _indexof",
+    "benchmark-regex": "node ./executioner.js -c _regex",
+    "prettier": "prettier --write \"contestants/**/*.{js,ts}\" executioner.js"
+  }
+}

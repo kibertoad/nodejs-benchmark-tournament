@@ -1,0 +1,14 @@
+{
+  "name": "dto",
+  "version": "1.0.0",
+  "license": "MIT",
+  "dependencies": {
+    "getopts": "^2.2.5",
+    "photofinish": "^1.1.0"
+  },
+  "scripts": {
+    "benchmark-classes": "node ./executioner.js -c classes",
+    "benchmark-pojos": "node ./executioner.js -c pojos",
+    "prettier": "prettier --write \"contestants/**/*.{js,ts}\" executioner.js"
+  }
+}
