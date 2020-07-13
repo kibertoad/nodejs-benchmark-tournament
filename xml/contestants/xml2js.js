@@ -1,29 +1,122 @@
-const {
-  nonMatchingString,
-  matchingString1,
-  matchingString2,
-  matchingString3,
-  matchingString4,
-} = require("./common");
+const xml2js = require('xml2js');
 
-function testString(val) {
-  return /^application\/([a-z.-]+\+)?json/.test(val);
+const xmlOptions = {
+  attrkey: '_attr',
+  explicitRoot: false
 }
+const builder = new xml2js.Builder(xmlOptions);
 
 function execute() {
-  const result1 = testString(matchingString1);
-  const result2 = testString(matchingString2);
-  const result3 = testString(matchingString3);
-  const result4 = testString(matchingString4);
-  const result5 = testString(nonMatchingString);
+  const xmlObject = {
+    OTA_HotelAvailRQ: [
+      {
+        _attr: {
+          xmlns: 'http://www.opentravel.org/OTA/2003/05',
+          "xmlns:xsi": 'http://www.w3.org/2001/XMLSchema-instance',
+          EchoToken: 'HP',
+          TimeStamp: '2015-04-01T12:31:54Z',
+          Version: '2.001',
+          PrimaryLangID: 'EN'
+        }
+      },
+      {
+        POS: [
+          {
+            Source: [
+              {
+                RequestorID: [
+                  {
+                    _attr: {
+                      Type: '13',
+                      ID: 'TED',
+                      ID_Context: 'TARS',
 
-  return {
-    result1,
-    result2,
-    result3,
-    result4,
-    result5,
-  };
+                    }
+                  },
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        AvailRequestSegments: [{
+          AvailRequestSegment: [
+            {
+              StayDateRange: [
+                {
+                  _attr: {
+                    Start: '2015-08-30',
+                    End: '2015-09-02',
+                  }
+                },
+              ]
+            },
+            {
+              RatePlanCandidates: [{
+                RatePlanCandidate: [
+                  {
+                    _attr: {
+                      RatePlanCode: 'RA1TED',
+                    }
+                  },
+                ]
+              }]
+            },
+            {
+              RoomStayCandidates: [{
+                RoomStayCandidate: [
+                  {
+                    _attr: {
+                      RoomTypeCode: 'DBC',
+                      Quantity: '1'
+                    }
+                  },
+                  {
+                    GuestCounts: [
+                      {
+                        _attr: {
+                          IsPerRoom: 'true',
+                        }
+                      },
+                      {
+                        GuestCount: [
+                          {
+                            _attr: {
+                              AgeQualifyingCode: '10',
+                              Count: '1'
+                            }
+                          },
+                        ]
+                      }]
+                  }]
+              }]
+            },
+            {
+              HotelSearchCriteria: [
+                {
+                  Criterion: [
+                    {
+                      HotelRef: [
+                        {
+                          _attr: {
+                            HotelCode: '0903'
+                          }
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }]
+        }]
+      }
+    ]
+  }
+
+  const result = builder.buildObject(xmlObject);
+
+  return result
 }
 
 module.exports = {

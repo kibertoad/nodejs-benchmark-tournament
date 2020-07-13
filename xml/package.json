@@ -7,6 +7,7 @@
     "js2xmlparser": "^4.0.1",
     "photofinish": "^1.1.0",
     "validation-utils": "^4.0.2",
+    "ltx": "^2.9.2",
     "xml": "^1.0.1",
     "xml2js": "^0.4.23",
     "xmlbuilder": "^15.1.1",
@@ -16,6 +17,7 @@
     "prettier": "^2.0.5"
   },
   "scripts": {
+    "benchmark-ltx": "node ./executioner.js -c _ltx",
     "benchmark-xml": "node ./executioner.js -c _xml",
     "benchmark-xml2js": "node ./executioner.js -c _xml2js",
     "benchmark-xmlbuilder": "node ./executioner.js -c _xmlbuilder",
