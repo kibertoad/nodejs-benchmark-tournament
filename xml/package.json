@@ -16,9 +16,10 @@
     "prettier": "^2.0.5"
   },
   "scripts": {
-    "benchmark-includes": "node ./executioner.js -c _includes",
-    "benchmark-indexof": "node ./executioner.js -c _indexof",
-    "benchmark-regex": "node ./executioner.js -c _regex",
+    "benchmark-xml": "node ./executioner.js -c _xml",
+    "benchmark-xml2js": "node ./executioner.js -c _xml2js",
+    "benchmark-xmlbuilder": "node ./executioner.js -c _xmlbuilder",
+    "benchmark-xmljs": "node ./executioner.js -c _xmljs",
     "prettier": "prettier --write \"contestants/**/*.{js,ts}\" executioner.js"
   }
 }

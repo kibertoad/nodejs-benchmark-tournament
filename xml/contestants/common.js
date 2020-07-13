@@ -1,24 +1,15 @@
-const { validationHelper: validate } = require("validation-utils");
+const {validationHelper: validate} = require("validation-utils");
+const fs = require('fs')
 
-const matchingString1 = "application/json";
-const matchingString2 = "application/ld+json";
-const matchingString3 = "application/hal+json";
-const matchingString4 = "application/vnd.api+json";
-const nonMatchingString = "application/xml";
+const expectedXml = fs.readFileSync(__dirname + '/expected.xml').toString()
+const expectedXmlNotSelfEnclosed = fs.readFileSync(__dirname + '/expected_not_self_enclosed.xml').toString()
 
-function validateAccuracy({ result1, result2, result3, result4, result5 }) {
-  validate.truthy(result1);
-  validate.truthy(result2);
-  validate.truthy(result3);
-  validate.truthy(result4);
-  validate.falsy(result5);
+function validateAccuracy(generatedXml, isSelfEnclosed) {
+    validate.booleanTrue(
+        isSelfEnclosed ?
+            expectedXml === generatedXml : expectedXmlNotSelfEnclosed === generatedXml, `Wrong XML generated: ${generatedXml}`)
 }
 
 module.exports = {
-  matchingString1,
-  matchingString2,
-  matchingString3,
-  matchingString4,
-  nonMatchingString,
-  validateAccuracy,
+    validateAccuracy,
 };

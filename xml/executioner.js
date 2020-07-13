@@ -1,19 +1,22 @@
 const { resolveContestant } = require("../common/contestantResolver");
 const { getMeasureFn } = require("../common/executionUtils");
-const { execute: indexofFn } = require("./contestants/xml");
-const { execute: includesFn } = require("./contestants/js2xmlparser");
-const { execute: regexFn } = require("./contestants/xml2js");
+const { execute: xmlFn } = require("./contestants/xml");
+const { execute: xml2jsFn } = require("./contestants/xml2js");
+const { execute: xmljsFn } = require("./contestants/xml-js");
+const { execute: js2xmlparserFn } = require("./contestants/js2xmlparser");
 const { validateAccuracy } = require("./contestants/common");
 
 const contestants = {
-  _indexof: getMeasureFn("indexof", indexofFn),
-  _includes: getMeasureFn("includes", includesFn),
-  _regex: getMeasureFn("regex", regexFn),
+  _xml: getMeasureFn("xml", xmlFn),
+  _xml2js: getMeasureFn("xml2js", xml2jsFn),
+  _xmljs: getMeasureFn("xmljs", xmljsFn),
+  _js2xmlparser: getMeasureFn("js2xmlparser", js2xmlparserFn),
 };
 
-validateAccuracy(indexofFn());
-validateAccuracy(includesFn());
-validateAccuracy(regexFn());
+validateAccuracy(xmlFn(), false);
+validateAccuracy(xml2jsFn());
+validateAccuracy(xmljsFn());
+validateAccuracy(js2xmlparserFn());
 
 const contestant = resolveContestant(contestants);
 contestant();
