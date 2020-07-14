@@ -10,7 +10,7 @@
     "ltx": "^2.9.2",
     "xml": "^1.0.1",
     "xml2js": "^0.4.23",
-    "xmlbuilder": "^15.1.1",
+    "xmlbuilder2": "^2.1.7",
     "xml-js": "^1.6.11"
   },
   "devDependencies": {

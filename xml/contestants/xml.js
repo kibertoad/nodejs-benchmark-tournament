@@ -113,6 +113,7 @@ function execute() {
     return result
 }
 
+// Dies with OOM error
 module.exports = {
     execute,
 };
