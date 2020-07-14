@@ -22,6 +22,7 @@
     "benchmark-xml2js": "node ./executioner.js -c _xml2js",
     "benchmark-xmlbuilder": "node ./executioner.js -c _xmlbuilder",
     "benchmark-xmljs": "node ./executioner.js -c _xmljs",
+    "benchmark-js2xmlparser": "node ./executioner.js -c _js2xmlparser",
     "prettier": "prettier --write \"contestants/**/*.{js,ts}\" executioner.js"
   }
 }

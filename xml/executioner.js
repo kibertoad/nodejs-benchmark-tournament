@@ -17,12 +17,12 @@ const contestants = {
   _js2xmlparser: getMeasureFn("js2xmlparser", js2xmlparserFn),
 };
 
-validateAccuracy(xml2jsFn(), true, true);
-validateAccuracy(xmlFn(), false, false);
-validateAccuracy(xmlLtxFn(), true, false);
-validateAccuracy(xmlBuilderFn(), true, true);
-validateAccuracy(xmljsFn(), true, true);
-//validateAccuracy(js2xmlparserFn());
+validateAccuracy(xml2jsFn(), true, true, false);
+validateAccuracy(xmlFn(), false, false, false);
+validateAccuracy(xmlLtxFn(), true, false, false);
+validateAccuracy(xmlBuilderFn(), true, true, false);
+validateAccuracy(xmljsFn(), true, true, false);
+validateAccuracy(js2xmlparserFn(), true, true, true);
 
 const contestant = resolveContestant(contestants);
 contestant();
