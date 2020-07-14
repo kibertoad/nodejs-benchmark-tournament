@@ -8,7 +8,7 @@ const { execute: js2xmlparserFn } = require("./contestants/js2xmlparser");
 const { validateAccuracy } = require("./contestants/common");
 
 const contestants = {
-  _xmlLtx: getMeasureFn("xmlltx", xmlLtxFn),
+  _ltx: getMeasureFn("ltx", xmlLtxFn),
   _xml: getMeasureFn("xml", xmlFn),
   _xml2js: getMeasureFn("xml2js", xml2jsFn),
   _xmljs: getMeasureFn("xmljs", xmljsFn),
