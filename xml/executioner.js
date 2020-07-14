@@ -21,8 +21,7 @@ validateAccuracy(xml2jsFn(), true, true);
 validateAccuracy(xmlFn(), false, false);
 validateAccuracy(xmlLtxFn(), true, false);
 validateAccuracy(xmlBuilderFn(), true, true);
-//validateAccuracy(xmljsFn());
-//
+validateAccuracy(xmljsFn(), true, true);
 //validateAccuracy(js2xmlparserFn());
 
 const contestant = resolveContestant(contestants);
