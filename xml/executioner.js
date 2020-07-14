@@ -16,7 +16,7 @@ const contestants = {
 };
 
 validateAccuracy(xmlFn(), false);
-validateAccuracy(xmlLtxFn());
+validateAccuracy(xmlLtxFn(), true);
 //validateAccuracy(xml2jsFn());
 //validateAccuracy(xmljsFn());
 //validateAccuracy(js2xmlparserFn());
