@@ -4,7 +4,7 @@
   "license": "MIT",
   "dependencies": {
     "getopts": "^2.2.5",
-    "photofinish": "^1.1.0"
+    "photofinish": "^1.2.0"
   },
   "scripts": {
     "benchmark-classes": "node ./executioner.js -c classes",

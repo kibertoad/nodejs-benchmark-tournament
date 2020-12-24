@@ -10,8 +10,8 @@
     "prettier": "lerna run prettier && prettier common"
   },
   "devDependencies": {
-    "lerna": "^3.22.0",
-    "prettier": "^2.0.5"
+    "lerna": "^3.22.1",
+    "prettier": "^2.2.1"
   },
   "workspaces": {
     "packages": [
