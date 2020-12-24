@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "license": "MIT",
   "dependencies": {
+    "systeminformation": "^4.33.1",
     "photofinish": "^1.7.2",
     "load-goblin": "^1.0.2"
   },
