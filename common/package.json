@@ -1,0 +1,15 @@
+{
+  "name": "common",
+  "version": "1.0.0",
+  "license": "MIT",
+  "dependencies": {
+    "photofinish": "^1.7.2",
+    "load-goblin": "^1.0.2"
+  },
+  "devDependencies": {
+    "prettier": "^2.2.1"
+  },
+  "scripts": {
+    "prettier": "prettier --write \"src/**/*.{js,ts}\" index.js"
+  }
+}

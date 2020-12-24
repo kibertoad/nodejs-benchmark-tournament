@@ -1,6 +1,6 @@
 const { BenchmarkBuilder } = require("photofinish");
 
-function getBuilder() {
+function getCommonBuilder() {
   const builder = new BenchmarkBuilder();
   return builder
     .warmupCycles(10000)
@@ -9,5 +9,5 @@ function getBuilder() {
 }
 
 module.exports = {
-  getBuilder,
+  getCommonBuilder,
 };

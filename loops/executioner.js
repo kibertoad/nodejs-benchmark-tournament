@@ -1,5 +1,5 @@
-const { resolveContestant } = require("../common/contestantResolver");
-const { getMeasureFn } = require("../common/executionUtils");
+const { resolveContestant } = require("../common/src/contestantResolver");
+const { getMeasureFn } = require("../common/src/executionUtils");
 const { execute: forEachFn } = require("./contestants/forEach");
 const { execute: forInFn } = require("./contestants/forIn");
 const { execute: forLoopFn } = require("./contestants/forLoop");

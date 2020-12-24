@@ -5,7 +5,7 @@
   "dependencies": {
     "getopts": "^2.2.5",
     "js2xmlparser": "^4.0.1",
-    "photofinish": "^1.1.0",
+    "photofinish": "^1.3.0",
     "validation-utils": "^4.0.2",
     "ltx": "^2.9.2",
     "xml": "^1.0.1",
@@ -14,7 +14,7 @@
     "xml-js": "^1.6.11"
   },
   "devDependencies": {
-    "prettier": "^2.0.5"
+    "prettier": "^2.2.1"
   },
   "scripts": {
     "benchmark-ltx": "node ./executioner.js -c _ltx",

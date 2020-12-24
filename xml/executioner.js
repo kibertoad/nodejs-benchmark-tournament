@@ -1,5 +1,5 @@
-const { resolveContestant } = require("../common/contestantResolver");
-const { getMeasureFn } = require("../common/executionUtils");
+const { resolveContestant } = require("../common/src/contestantResolver");
+const { getMeasureFn } = require("../common/src/executionUtils");
 const { execute: xmlFn } = require("./contestants/xml");
 const { execute: xmlBuilderFn } = require("./contestants/xmlbuilder");
 const { execute: xml2jsFn } = require("./contestants/xml2js");

@@ -1,9 +1,9 @@
-const { getBuilder } = require("./commonBuilder");
+const { getCommonBuilder } = require("./commonBuilder");
 const { outputResults } = require("./resultUtils");
 
 function getMeasureFn(constestandId, fn) {
   return () => {
-    const benchmark = getBuilder()
+    const benchmark = getCommonBuilder()
         .benchmarkEntryName(constestandId)
         .functionUnderTest(fn).build();
     const benchmarkResults = benchmark.execute();

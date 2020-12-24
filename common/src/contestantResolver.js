@@ -8,8 +8,11 @@ const options = getopts(process.argv.slice(1), {
 });
 
 function resolveContestant(contestants) {
-  const contestandId = options.contestant;
-  const contestant = contestants[contestandId];
+  const contestantId = options.contestant;
+  const contestant = Number.isFinite(contestantId) ?
+      Object.values(contestants)[contestantId] :
+      contestants[contestantId];
+
   if (!contestant) {
     throw new Error(`Unknown contestant ${contestandId}`);
   }

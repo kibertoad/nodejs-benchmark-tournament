@@ -4,7 +4,7 @@
   "license": "MIT",
   "dependencies": {
     "getopts": "^2.2.5",
-    "photofinish": "^1.2.0",
+    "photofinish": "^1.7.2",
     "validation-utils": "^4.0.2"
   },
   "devDependencies": {

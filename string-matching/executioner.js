@@ -1,5 +1,5 @@
-const { resolveContestant } = require("../common/contestantResolver");
-const { getMeasureFn } = require("../common/executionUtils");
+const { resolveContestant } = require("../common/src/contestantResolver");
+const { getMeasureFn } = require("../common/src/executionUtils");
 const { execute: indexofFn } = require("./contestants/indexof");
 const { execute: includesFn } = require("./contestants/includes");
 const { execute: regexFn } = require("./contestants/regex");
