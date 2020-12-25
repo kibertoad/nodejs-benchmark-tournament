@@ -4,18 +4,16 @@
   "license": "MIT",
   "dependencies": {
     "getopts": "^2.2.5",
-    "photofinish": "^1.7.2",
-    "validation-utils": "^5.0.2"
+    "photofinish": "^1.8.0",
+    "validation-utils": "^6.0.0"
   },
   "scripts": {
     "install-node": "nvm install 15.5.0 && nvm install 14.15.3 && nvm install 12.20.0 && nvm install 10.23.0",
-    "use-node-15": "nvm use 15.5.0",
-    "use-node-14": "nvm use 14.15.3",
-    "use-node-12": "nvm use 12.20.0",
-    "use-node-10": "nvm use 10.23.0",
     "benchmark-classes": "node ./executioner.js -c 0",
     "benchmark-pojos": "node ./executioner.js -c 1",
-    "benchmark-all": "npm run benchmark-classes && npm run benchmark-pojos",
+    "benchmark-all": "npm run benchmark-classes && npm run benchmark-pojos -p high",
+    "benchmark-all-medium": "npm run benchmark-classes && npm run benchmark-pojos -p medium",
+    "benchmark-all-low": "npm run benchmark-classes && npm run benchmark-pojos -p low",
     "combine-results": "node ../common/src/resultsCombinator.js -r _results -p 6",
     "prettier": "prettier --write \"contestants/**/*.{js,ts}\" executioner.js"
   }

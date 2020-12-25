@@ -31,6 +31,9 @@ async function saveTable() {
 
   const table = generateTable(benchmarkResults, {
     precision: options.precision,
+    sortBy: [
+      { field: 'meanTimeNs', order: 'asc'},
+    ]
   });
 
   const specs = await getSpecs();

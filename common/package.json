@@ -4,8 +4,9 @@
   "license": "MIT",
   "dependencies": {
     "systeminformation": "^4.33.1",
-    "photofinish": "^1.7.2",
-    "load-goblin": "^1.0.2"
+    "photofinish": "^1.8.0",
+    "load-goblin": "^1.0.2",
+    "validation-utils": "^6.0.0"
   },
   "devDependencies": {
     "prettier": "^2.2.1"

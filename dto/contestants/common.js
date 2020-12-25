@@ -1,11 +1,11 @@
-const { validationHelper } = require("validation-utils");
+const { validateEqual  } = require("validation-utils");
 
 function validateAccuracy(createdValue) {
-  validationHelper.equal(createdValue.name, "name");
-  validationHelper.equal(createdValue.age, 21);
-  validationHelper.equal(createdValue.profession, "stargazer");
-  validationHelper.equal(createdValue.eyes, "blue");
-  validationHelper.equal(createdValue.haircut, "short");
+  validateEqual(createdValue.name, "name");
+  validateEqual(createdValue.age, 21);
+  validateEqual(createdValue.profession, "stargazer");
+  validateEqual(createdValue.eyes, "blue");
+  validateEqual(createdValue.haircut, "short");
 }
 
 module.exports = {

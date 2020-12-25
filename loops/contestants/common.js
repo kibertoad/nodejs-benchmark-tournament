@@ -1,7 +1,7 @@
-const { validationHelper: validate } = require("validation-utils");
+const { validateEqual } = require("validation-utils");
 
 function validateAccuracy(sum) {
-  validate.equal(sum, 2674782);
+  validateEqual(sum, 2674782);
 }
 
 const values = [

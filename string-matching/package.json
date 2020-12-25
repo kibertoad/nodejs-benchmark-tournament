@@ -4,8 +4,8 @@
   "license": "MIT",
   "dependencies": {
     "getopts": "^2.2.5",
-    "photofinish": "^1.7.2",
-    "validation-utils": "^4.0.2"
+    "photofinish": "^1.8.0",
+    "validation-utils": "^6.0.0"
   },
   "devDependencies": {
     "prettier": "^2.2.1"

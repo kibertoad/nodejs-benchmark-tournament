@@ -1,4 +1,4 @@
-const {validationHelper: validate} = require("validation-utils");
+const { validateBooleanTrue } = require("validation-utils");
 const fs = require('fs')
 
 const expectedXml = fs.readFileSync(__dirname + '/expected.xml').toString()
@@ -24,7 +24,7 @@ function getExpected(isSelfEnclosed, hasXmlVersion, hasRoot) {
 
 function validateAccuracy(generatedXml, isSelfEnclosed, hasXmlVersion, hasRoot) {
     const expectedXml = getExpected(isSelfEnclosed, hasXmlVersion, hasRoot)
-    validate.booleanTrue(expectedXml === generatedXml, `Wrong XML generated: ${generatedXml}`)
+    validateBooleanTrue(expectedXml === generatedXml, `Wrong XML generated: ${generatedXml}`)
 }
 
 module.exports = {
