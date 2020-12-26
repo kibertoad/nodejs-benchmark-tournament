@@ -11,11 +11,14 @@
     "prettier": "^2.2.1"
   },
   "scripts": {
+    "install-node": "nvm install 15.5.0 && nvm install 14.15.3 && nvm install 12.20.0 && nvm install 10.23.0",
     "benchmark-foreach": "node ./executioner.js -c _foreach",
     "benchmark-forin": "node ./executioner.js -c _forin",
     "benchmark-forloop": "node ./executioner.js -c _forloop",
     "benchmark-forloopcached": "node ./executioner.js -c _forloopcached",
     "benchmark-forof": "node ./executioner.js -c _forof",
+    "benchmark-all": "npm run benchmark-foreach && npm run benchmark-forin && npm run benchmark-forloop && npm run benchmark-forloopcached && npm run benchmark-forloopcached && npm run benchmark-forof",
+    "combine-results": "node ../common/src/resultsCombinator.js -r _results -p 6",
     "prettier": "prettier --write \"contestants/**/*.{js,ts}\" executioner.js"
   }
 }
