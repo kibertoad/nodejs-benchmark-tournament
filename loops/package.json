@@ -11,7 +11,7 @@
     "prettier": "^2.2.1"
   },
   "scripts": {
-    "install-node": "nvm install 15.5.0 && nvm install 14.15.3 && nvm install 12.20.0 && nvm install 10.23.0",
+    "install-node": "nvm install 15.8.0 && nvm install 14.15.3 && nvm install 12.20.1 && nvm install 10.23.2",
     "benchmark-foreach": "node ./executioner.js -c _foreach",
     "benchmark-forin": "node ./executioner.js -c _forin",
     "benchmark-forloop": "node ./executioner.js -c _forloop",

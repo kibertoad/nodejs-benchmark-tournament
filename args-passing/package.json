@@ -1,0 +1,24 @@
+{
+  "name": "args-passing",
+  "version": "1.0.0",
+  "license": "MIT",
+  "dependencies": {
+    "getopts": "^2.2.5",
+    "photofinish": "^1.8.0",
+    "validation-utils": "^6.0.0"
+  },
+  "devDependencies": {
+    "prettier": "^2.2.1"
+  },
+  "scripts": {
+    "install-node": "nvm install 15.8.0 && nvm install 14.15.4 && nvm install 12.20.1 && nvm install 10.23.2",
+    "benchmark-argapply": "node ./executioner.js -c 0",
+    "benchmark-argspread": "node ./executioner.js -c 1",
+    "benchmark-copyapply": "node ./executioner.js -c 2",
+    "benchmark-copyspread": "node ./executioner.js -c 3",
+    "benchmark-spreadspread": "node ./executioner.js -c 4",
+    "benchmark-all": "npm run benchmark-argapply && npm run benchmark-argspread && npm run benchmark-copyapply && npm run benchmark-copyspread && npm run benchmark-spreadspread",
+    "combine-results": "node ../common/src/resultsCombinator.js -r _results -p 6",
+    "prettier": "prettier --write \"contestants/**/*.{js,ts}\" executioner.js"
+  }
+}
