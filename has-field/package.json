@@ -1,0 +1,24 @@
+{
+  "name": "string-matching",
+  "version": "1.0.0",
+  "license": "MIT",
+  "dependencies": {
+    "getopts": "^2.2.5",
+    "photofinish": "^1.8.0",
+    "validation-utils": "^6.0.0"
+  },
+  "devDependencies": {
+    "prettier": "^2.2.1"
+  },
+  "scripts": {
+    "install-node": "nvm install 19.8.1 && nvm install 18.15.0 && nvm install 16.19.1 && nvm install 14.21.3 && nvm install 12.22.12 && nvm install 10.24.1",
+    "benchmark-directFieldAccess": "node ./executioner.js -c _directFieldAccess",
+    "benchmark-hasOwnProperty": "node ./executioner.js -c _hasOwnProperty",
+    "benchmark-objectHasOwnProperty": "node ./executioner.js -c _objectHasOwnProperty",
+    "benchmark-in": "node ./executioner.js -c _in",
+    "benchmark-mapHas": "node ./executioner.js -c _mapHas",
+    "benchmark-all": "npm run benchmark-directFieldAccess && npm run benchmark-hasOwnProperty && npm run benchmark-objectHasOwnProperty && npm run benchmark-in && npm run benchmark-mapHas",
+    "combine-results": "node ../common/src/resultsCombinator.js -r _results -p 6",
+    "prettier": "prettier --write \"contestants/**/*.{js,ts}\" executioner.js"
+  }
+}
