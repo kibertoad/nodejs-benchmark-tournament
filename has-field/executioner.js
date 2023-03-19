@@ -5,6 +5,7 @@ const { execute: inFn } = require("./contestants/in");
 const { execute: objectHasOwnPropertyFn } = require("./contestants/ObjectHasOwnProperty");
 const { execute: directFieldAccessFn } = require("./contestants/directFieldAccess");
 const { execute: mapHasFn } = require("./contestants/MapHas");
+const { execute: mapGetFn } = require("./contestants/MapGet");
 const { validateAccuracy } = require("./contestants/common");
 
 const contestants = {
@@ -13,6 +14,7 @@ const contestants = {
   _objectHasOwnProperty: getMeasureFn("objectHasOwnProperty", objectHasOwnPropertyFn),
   _in: getMeasureFn("in", inFn),
   _mapHas: getMeasureFn("mapHas", mapHasFn),
+  _mapGet: getMeasureFn("mapGet", mapGetFn),
 };
 
 validateAccuracy(directFieldAccessFn());
@@ -20,6 +22,7 @@ validateAccuracy(hasOwnPropertyFn());
 validateAccuracy(objectHasOwnPropertyFn());
 validateAccuracy(inFn());
 validateAccuracy(mapHasFn());
+validateAccuracy(mapGetFn());
 
 const contestant = resolveContestant(contestants);
 contestant();

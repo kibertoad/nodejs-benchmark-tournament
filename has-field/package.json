@@ -17,7 +17,8 @@
     "benchmark-objectHasOwnProperty": "node ./executioner.js -c _objectHasOwnProperty",
     "benchmark-in": "node ./executioner.js -c _in",
     "benchmark-mapHas": "node ./executioner.js -c _mapHas",
-    "benchmark-all": "npm run benchmark-directFieldAccess && npm run benchmark-hasOwnProperty && npm run benchmark-objectHasOwnProperty && npm run benchmark-in && npm run benchmark-mapHas",
+    "benchmark-mapGet": "node ./executioner.js -c _mapGet",
+    "benchmark-all": "npm run benchmark-directFieldAccess && npm run benchmark-hasOwnProperty && npm run benchmark-objectHasOwnProperty && npm run benchmark-in && npm run benchmark-mapHas && npm run benchmark-mapGet",
     "combine-results": "node ../common/src/resultsCombinator.js -r _results -p 6",
     "prettier": "prettier --write \"contestants/**/*.{js,ts}\" executioner.js"
   }
