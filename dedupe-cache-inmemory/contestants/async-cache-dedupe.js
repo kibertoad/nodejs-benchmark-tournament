@@ -3,7 +3,11 @@ const { createCache } = require("async-cache-dedupe");
 
 const cache = createCache({
   ttl: TTL, // seconds
-  storage: { type: "memory", options: { size: MAX_ITEMS } }
+  storage: { type: "memory", options: { size: MAX_ITEMS } },
+  transformer: {
+    serialize: (result) => result,
+    deserialize: (serialized) => serialized,
+  }
 });
 
 cache.define("fetchSomething", (k) => {

@@ -3,7 +3,7 @@ const { LoadingOperation } = require('layered-loader')
 
 const loadingOperation = new LoadingOperation({
   inMemoryCache: {
-    cacheType: 'lru',
+    cacheType: 'fifo',
     maxItems: MAX_ITEMS,
     ttlInMsecs: TTL,
   },

@@ -1,7 +1,8 @@
 const { resolveContestant } = require("../common/src/contestantResolver");
 const { getMeasureFn } = require("../common/src/executionUtils");
 
-const { get: layeredLoaderGetFn, execute: layeredLoaderFn } = require("./contestants/layered-loader-lru");
+const { get: layeredLoaderLruGetFn, execute: layeredLoaderLruFn } = require("./contestants/layered-loader-lru");
+const { get: layeredLoaderFifoGetFn, execute: layeredLoaderFifoFn } = require("./contestants/layered-loader-fifo");
 const { get: dataLoaderGetFn, execute: dataLoaderFn } = require("./contestants/dataloader");
 const {
   get: asyncCacheDedupeGetFn, execute: asyncCacheDedupeFn,
@@ -10,18 +11,20 @@ const {
 const { validateAccuracy } = require("./contestants/common");
 
 const benchParams = {
-  warmup: 500,
-  cycles: 100
+  warmup: 1000,
+  cycles: 2000
 }
 
 const contestants = {
-  _layeredLoader: getMeasureFn("layered-loader", layeredLoaderFn, benchParams),
-  _dataLoader: getMeasureFn("data-loader", dataLoaderFn, benchParams),
+  _layeredLoaderLru: getMeasureFn("layered-loader-lru", layeredLoaderLruFn, benchParams),
+  _layeredLoaderFifo: getMeasureFn("layered-loader-fifo", layeredLoaderFifoFn, benchParams),
+  _dataLoader: getMeasureFn("dataloader", dataLoaderFn, benchParams),
   _asyncCacheDedupe: getMeasureFn("async-cache-dedupe", asyncCacheDedupeFn, benchParams),
 };
 
 Promise.all([
-  validateAccuracy(layeredLoaderGetFn),
+  validateAccuracy(layeredLoaderLruGetFn),
+  validateAccuracy(layeredLoaderFifoGetFn),
   validateAccuracy(dataLoaderGetFn),
   validateAccuracy(asyncCacheDedupeGetFn),
 ]).then(() => {
