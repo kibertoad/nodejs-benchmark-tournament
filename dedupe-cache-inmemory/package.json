@@ -1,0 +1,25 @@
+{
+  "name": "cache",
+  "version": "1.0.0",
+  "license": "MIT",
+  "dependencies": {
+    "async-cache-dedupe": "^1.10.2",
+    "dataloader": "^2.2.2",
+    "getopts": "^2.3.0",
+    "layered-loader": "^9.3.2",
+    "photofinish": "^1.8.0",
+    "validation-utils": "^7.0.0"
+  },
+  "devDependencies": {
+    "prettier": "^2.2.1"
+  },
+  "scripts": {
+    "install-node": "nvm install 19.8.1 && nvm install 18.15.0 && nvm install 16.20.0 && nvm install 14.21.3",
+    "benchmark:layered-loader": "node executioner.js -c _layeredLoader",
+    "benchmark:data-loader": "node executioner.js -c _dataLoader",
+    "benchmark:async-cache-dedupe": "node executioner.js -c _asyncCacheDedupe",
+    "benchmark-all": "npm run benchmark:async-cache-dedupe && npm run benchmark:data-loader && npm run benchmark:layered-loader",
+    "combine-results": "node ../common/src/resultsCombinator.js -r _results -p 6",
+    "prettier": "prettier --write \\\\\\\"contestants/**/*.{js,ts}\\\\\\\" executioner.js"
+  }
+}
