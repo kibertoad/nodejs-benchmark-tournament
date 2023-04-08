@@ -12,6 +12,8 @@ const loadingOperation = new LoadingOperation({
   asyncCache: new RedisCache(redis, {
     ttlInMsecs: TTL,
     ttlLeftBeforeRefreshInMsecs: Math.round(TTL / 4),
+    ttlCacheTtl: TTL,
+    ttlCacheSize: MAX_ITEMS,
     json: true,
   }),
   loaders: [
