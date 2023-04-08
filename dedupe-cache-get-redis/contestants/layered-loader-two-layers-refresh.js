@@ -4,7 +4,7 @@ const { PromisePool } = require('@supercharge/promise-pool')
 
 const loadingOperation = new LoadingOperation({
   inMemoryCache: {
-    cacheType: 'lru',
+    cacheType: 'lru-object',
     maxItems: MAX_ITEMS,
     ttlInMsecs: Math.round(TTL / 5),
     ttlLeftBeforeRefreshInMsecs: Math.round(TTL / 15),
