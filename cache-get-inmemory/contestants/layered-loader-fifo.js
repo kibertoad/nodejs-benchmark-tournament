@@ -16,12 +16,6 @@ const loadingOperation = new LoadingOperation({
   }]
 })
 
-/*
-for (var x = 0; x < ELEMENT_COUNT; x++) {
-  loadingOperation.get(x.toString())
-}
- */
-
 async function execute() {
   for (var x = 0; x < ELEMENT_COUNT; x++) {
     loadingOperation.getInMemoryOnly(x.toString()) || await loadingOperation.getAsyncOnly(x.toString());
