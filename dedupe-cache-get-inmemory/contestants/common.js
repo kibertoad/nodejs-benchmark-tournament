@@ -3,7 +3,7 @@ const { setTimeout } = require('timers/promises')
 
 const MAX_ITEMS = 10000
 const TTL = 1000
-const ELEMENT_COUNT = 1000
+const ELEMENT_COUNT = 300
 const LOADING_TIME_IN_MSECS = 200
 const BULK_LOADING_TIME_IN_MSECS = 240
 
@@ -13,7 +13,20 @@ function arrayRange(start, stop, step) {
   return Array.from({ length: (stop - start) / step + 1 }, (value, index) => start + index * step)
 }
 
-const ids = arrayRange(1, ELEMENT_COUNT, 1)
+const uniqueIds = arrayRange(1, ELEMENT_COUNT, 1)
+const allIds = uniqueIds.reduce((acc, id) => {
+  acc.push(id)
+  acc.push(id)
+  acc.push(id)
+  acc.push(id)
+  if (id % 2 === 0) {
+    acc.push(id)
+    acc.push(id)
+    acc.push(id)
+  }
+
+  return acc
+}, [])
 
 async function validateAccuracy(getFn) {
   const value = await getFn({
@@ -51,7 +64,7 @@ module.exports = {
   ELEMENT_COUNT,
   MAX_ITEMS,
   TTL,
-  ids,
+  ids: allIds,
   loadFn,
   batchLoadFn,
   validateAccuracy,
