@@ -1,0 +1,33 @@
+{
+  "name": "cache-dedupe-redis",
+  "version": "1.0.0",
+  "license": "MIT",
+  "dependencies": {
+    "@supercharge/promise-pool": "^2.4.0",
+    "async-cache-dedupe": "1.10.2",
+    "dataloader": "2.2.2",
+    "getopts": "^2.3.0",
+    "ioredis": "^5.3.1",
+    "layered-loader": "9.5.1",
+    "photofinish": "^1.8.0",
+    "validation-utils": "^7.0.0"
+  },
+  "devDependencies": {
+    "prettier": "^2.2.1"
+  },
+  "scripts": {
+    "install-node": "nvm install 19.8.1 && nvm install 18.15.0 && nvm install 16.20.0 && nvm install 14.21.3",
+    "docker:start": "docker-compose -f docker-compose.yml up --build -d redis && docker-compose -f docker-compose.yml up --build -d wait_for_redis",
+    "docker:stop": "docker-compose -f docker-compose.yml down",
+    "benchmark:layered-loader": "node executioner.js -c _layeredLoader",
+    "benchmark:layered-loader-refresh": "node executioner.js -c _layeredLoaderRefresh",
+    "benchmark:layered-loader-two-layer-refresh": "node executioner.js -c _layeredLoaderTwoLayerRefresh",
+    "benchmark:data-loader": "node executioner.js -c _dataLoader",
+    "benchmark:async-cache-dedupe": "node executioner.js -c _asyncCacheDedupe",
+    "benchmark:no-dedupe": "node executioner.js -c _noDedupe",
+    "benchmark-layered-loader": "npm run benchmark:layered-loader && npm run benchmark:layered-loader-refresh && npm run benchmark:layered-loader-two-layer-refresh",
+    "benchmark-all": "npm run benchmark:async-cache-dedupe && npm run benchmark:layered-loader && npm run benchmark:layered-loader-refresh && npm run benchmark:layered-loader-two-layer-refresh && npm run benchmark:no-dedupe",
+    "combine-results": "node ../common/src/resultsCombinator.js -r _results -p 6",
+    "prettier": "prettier --write \"contestants/**/*.{js,ts}\" executioner.js"
+  }
+}
