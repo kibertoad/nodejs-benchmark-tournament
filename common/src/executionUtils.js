@@ -13,6 +13,9 @@ function getMeasureFn(constestandId, fn, paramOverrides = {}) {
     if (paramOverrides.cycles) {
       benchmarkBuilder.benchmarkCycles(paramOverrides.cycles)
     }
+    if (paramOverrides.cycleSamples) {
+      benchmarkBuilder.benchmarkCycleSamples(paramOverrides.cycleSamples)
+    }
 
     const benchmark = benchmarkBuilder.build();
 
