@@ -5,10 +5,6 @@ const { PromisePool } = require('@supercharge/promise-pool')
 const cache = createCache({
   ttl: TTL, // seconds
   storage: { type: 'redis', options: { size: MAX_ITEMS, client: redis } },
-  transformer: {
-    serialize: (result) => result,
-    deserialize: (serialized) => serialized,
-  },
 })
 
 cache.define('fetchSomething', (params) => {
