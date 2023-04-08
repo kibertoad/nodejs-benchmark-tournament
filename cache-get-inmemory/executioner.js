@@ -4,6 +4,7 @@ const { getMeasureFn } = require("../common/src/executionUtils");
 const { get: layeredLoaderLruGetFn, execute: layeredLoaderLruFn } = require("./contestants/layered-loader-lru");
 const { get: layeredLoaderLruObjectGetFn, execute: layeredLoaderLruObjectFn } = require("./contestants/layered-loader-lru-object");
 const { get: layeredLoaderFifoGetFn, execute: layeredLoaderFifoFn } = require("./contestants/layered-loader-fifo");
+const { get: layeredLoaderFifoObjectGetFn, execute: layeredLoaderFifoObjectFn } = require("./contestants/layered-loader-fifo-object");
 const { get: dataLoaderGetFn, execute: dataLoaderFn } = require("./contestants/dataloader");
 const {
   get: asyncCacheDedupeGetFn, execute: asyncCacheDedupeFn,
@@ -12,14 +13,15 @@ const {
 const { validateAccuracy } = require("./contestants/common");
 
 const benchParams = {
-  warmup: 1000,
-  cycles: 2000
+  warmup: 300,
+  cycles: 300
 }
 
 const contestants = {
   _layeredLoaderLru: getMeasureFn("layered-loader-lru", layeredLoaderLruFn, benchParams),
   _layeredLoaderLruObject: getMeasureFn("layered-loader-lru-object", layeredLoaderLruObjectFn, benchParams),
   _layeredLoaderFifo: getMeasureFn("layered-loader-fifo", layeredLoaderFifoFn, benchParams),
+  _layeredLoaderFifoObject: getMeasureFn("layered-loader-fifo-object", layeredLoaderFifoObjectFn, benchParams),
   _dataLoader: getMeasureFn("dataloader", dataLoaderFn, benchParams),
   _asyncCacheDedupe: getMeasureFn("async-cache-dedupe", asyncCacheDedupeFn, benchParams),
 };
@@ -28,6 +30,7 @@ Promise.all([
   validateAccuracy(layeredLoaderLruGetFn),
   validateAccuracy(layeredLoaderLruObjectGetFn),
   validateAccuracy(layeredLoaderFifoGetFn),
+  validateAccuracy(layeredLoaderFifoObjectGetFn),
   validateAccuracy(dataLoaderGetFn),
   validateAccuracy(asyncCacheDedupeGetFn),
 ]).then(() => {

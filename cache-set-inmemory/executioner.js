@@ -30,6 +30,7 @@ Promise.all([
   validateAccuracy(layeredLoaderLruGetFn),
   validateAccuracy(layeredLoaderLruObjectGetFn),
   validateAccuracy(layeredLoaderFifoGetFn),
+  validateAccuracy(layeredLoaderFifoObjectGetFn),
   validateAccuracy(dataLoaderGetFn),
   validateAccuracy(asyncCacheDedupeGetFn),
 ]).then(() => {
