@@ -1,5 +1,4 @@
 const { redis, MAX_ITEMS, TTL, ELEMENT_COUNT, CONCURRENCY, ids, loadFn } = require('./common')
-const { lruObject } = require('toad-cache')
 const { PromisePool } = require('@supercharge/promise-pool')
 
 async function execute() {
