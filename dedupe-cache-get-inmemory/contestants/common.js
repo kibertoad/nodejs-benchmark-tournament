@@ -2,7 +2,7 @@ const { validateEqual } = require('validation-utils')
 const { setTimeout } = require('timers/promises')
 
 const MAX_ITEMS = 10000
-const TTL = 1000
+const TTL = 2000
 const ELEMENT_COUNT = 300
 const LOADING_TIME_IN_MSECS = 200
 const BULK_LOADING_TIME_IN_MSECS = 240
@@ -47,9 +47,7 @@ async function loadFn(params) {
 }
 
 async function batchLoadFn(paramsArray) {
-  const loadTime = paramsArray.length === 1 ? LOADING_TIME_IN_MSECS : BULK_LOADING_TIME_IN_MSECS
-
-  return setTimeout(loadTime).then(() => {
+  return setTimeout(LOADING_TIME_IN_MSECS).then(() => {
     return paramsArray.map((params) => {
       return {
         orgId: params.orgId,

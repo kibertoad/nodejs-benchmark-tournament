@@ -3,7 +3,7 @@ const { createCache } = require('async-cache-dedupe')
 const { PromisePool } = require('@supercharge/promise-pool')
 
 const cache = createCache({
-  ttl: TTL, // seconds
+  ttl: Math.round(TTL / 1000), // seconds
   storage: { type: 'memory', options: { size: MAX_ITEMS } },
   transformer: {
     serialize: (result) => result,
