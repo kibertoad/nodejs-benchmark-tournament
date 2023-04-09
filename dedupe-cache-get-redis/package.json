@@ -8,7 +8,7 @@
     "dataloader": "2.2.2",
     "getopts": "^2.3.0",
     "ioredis": "^5.3.1",
-    "layered-loader": "9.6.1",
+    "layered-loader": "10.0.0",
     "photofinish": "^1.8.0",
     "validation-utils": "^7.0.0"
   },
@@ -16,7 +16,7 @@
     "prettier": "^2.2.1"
   },
   "scripts": {
-    "install-node": "nvm install 19.8.1 && nvm install 18.15.0 && nvm install 16.20.0 && nvm install 14.21.3",
+    "install-node": "nvm install 19.8.1 && nvm install 18.15.0 && nvm install 16.20.0",
     "docker:start": "docker-compose -f docker-compose.yml up --build -d redis && docker-compose -f docker-compose.yml up --build -d wait_for_redis",
     "docker:stop": "docker-compose -f docker-compose.yml down",
     "benchmark:layered-loader": "node executioner.js -c _layeredLoader",

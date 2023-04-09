@@ -24,9 +24,9 @@ const benchParams = {
 }
 
 const contestants = {
-  _layeredLoaderLru: getMeasureFn('layered-loader-lru', layeredLoaderLruFn, benchParams),
+  _layeredLoaderLru: getMeasureFn('layered-loader-lru-map', layeredLoaderLruFn, benchParams),
   _layeredLoaderLruObject: getMeasureFn('layered-loader-lru-object', layeredLoaderLruObjectFn, benchParams),
-  _layeredLoaderFifo: getMeasureFn('layered-loader-fifo', layeredLoaderFifoFn, benchParams),
+  _layeredLoaderFifo: getMeasureFn('layered-loader-fifo-map', layeredLoaderFifoFn, benchParams),
   _layeredLoaderFifoObject: getMeasureFn('layered-loader-fifo-object', layeredLoaderFifoObjectFn, benchParams),
   _dataLoader: getMeasureFn('dataloader', dataLoaderFn, benchParams),
   _asyncCacheDedupe: getMeasureFn('async-cache-dedupe', asyncCacheDedupeFn, benchParams),
