@@ -6,6 +6,8 @@ const { get: layeredLoaderLruObjectGetFn, execute: layeredLoaderLruObjectFn } = 
 const { get: layeredLoaderFifoGetFn, execute: layeredLoaderFifoFn } = require("./contestants/layered-loader-fifo");
 const { get: layeredLoaderFifoObjectGetFn, execute: layeredLoaderFifoObjectFn } = require("./contestants/layered-loader-fifo-object");
 const { get: dataLoaderGetFn, execute: dataLoaderFn } = require("./contestants/dataloader");
+const { get: toadCacheLruGetFn, execute: toadCacheLruFn } = require("./contestants/toad-cache-lru-object");
+const { get: tinyLruGetFn, execute: tinyLruFn } = require("./contestants/tiny-lru");
 const {
   get: asyncCacheDedupeGetFn, execute: asyncCacheDedupeFn,
 } = require("./contestants/async-cache-dedupe");
@@ -24,6 +26,8 @@ const contestants = {
   _layeredLoaderFifoObject: getMeasureFn("layered-loader-fifo-object", layeredLoaderFifoObjectFn, benchParams),
   _dataLoader: getMeasureFn("dataloader", dataLoaderFn, benchParams),
   _asyncCacheDedupe: getMeasureFn("async-cache-dedupe", asyncCacheDedupeFn, benchParams),
+  _toadCacheLru: getMeasureFn("toad-cache-lru", toadCacheLruFn, benchParams),
+  _tinyLru: getMeasureFn("tiny-lru", tinyLruFn, benchParams),
 };
 
 Promise.all([
@@ -33,6 +37,8 @@ Promise.all([
   validateAccuracy(layeredLoaderFifoObjectGetFn),
   validateAccuracy(dataLoaderGetFn),
   validateAccuracy(asyncCacheDedupeGetFn),
+  validateAccuracy(toadCacheLruGetFn),
+  validateAccuracy(tinyLruGetFn),
 ]).then(() => {
   const contestant = resolveContestant(contestants);
   contestant();
