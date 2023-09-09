@@ -1,0 +1,28 @@
+{
+  "name": "cache-get-many-inmemory",
+  "version": "1.0.0",
+  "license": "MIT",
+  "dependencies": {
+    "async-cache-dedupe": "1.12.0",
+    "dataloader": "2.2.2",
+    "getopts": "^2.3.0",
+    "layered-loader": "12.0.0-beta2",
+    "toad-cache": "^3.2.0",
+    "tiny-lru": "11.0.1",
+    "photofinish": "^1.8.0",
+    "validation-utils": "^9.1.0"
+  },
+  "devDependencies": {
+    "prettier": "^3.0.3"
+  },
+  "scripts": {
+    "install-node": "nvm install 20.6.1 && nvm install 18.17.1 && nvm install 16.20.2",
+    "benchmark:layered-loader-lru-object": "node executioner.js -c _layeredLoaderLruObject",
+    "benchmark:layered-loader-fifo-object": "node executioner.js -c _layeredLoaderFifoObject",
+    "benchmark:data-loader": "node executioner.js -c _dataLoader",
+    "benchmark-layered-loader": "npm run benchmark:layered-loader-lru-object && npm run benchmark:layered-loader-fifo-object",
+    "benchmark-all": "npm run benchmark:data-loader && npm run benchmark:layered-loader-lru-object && npm run benchmark:layered-loader-fifo-object",
+    "combine-results": "node ../common/src/resultsCombinator.js -r _results -p 6",
+    "prettier": "prettier --write \\\\\\\"contestants/**/*.{js,ts}\\\\\\\" executioner.js"
+  }
+}
