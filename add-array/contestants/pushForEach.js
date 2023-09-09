@@ -1,10 +1,11 @@
 const { array1, array2 } = require("./common");
 
 function execute() {
-  const newArr = []
+  const newArr = [...array1]
 
-  newArr.push(...array1)
-  newArr.push(...array2)
+  array2.forEach((entry) => {
+    newArr.push(entry)
+  })
 
   return newArr
 }
@@ -13,4 +14,4 @@ module.exports = {
   execute,
 };
 
-// Latest results: 587 nanoseconds
+// Latest results: xxx nanoseconds
