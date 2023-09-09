@@ -1,0 +1,31 @@
+{
+  "name": "cache-get-many-redis",
+  "version": "1.0.0",
+  "license": "MIT",
+  "dependencies": {
+    "async-cache-dedupe": "1.12.0",
+    "dataloader": "2.2.2",
+    "getopts": "^2.3.0",
+    "ioredis": "^5.3.2",
+    "layered-loader": "12.0.0-beta2",
+    "toad-cache": "^3.2.0",
+    "tiny-lru": "11.0.1",
+    "photofinish": "^1.8.0",
+    "validation-utils": "^9.1.0"
+  },
+  "devDependencies": {
+    "prettier": "^3.0.3"
+  },
+  "scripts": {
+    "install-node": "nvm install 20.6.1 && nvm install 18.17.1 && nvm install 16.20.2",
+    "docker:start": "docker-compose -f docker-compose.yml up --build -d redis && docker-compose -f docker-compose.yml up --build -d wait_for_redis",
+    "docker:stop": "docker-compose -f docker-compose.yml down",
+    "benchmark:layered-loader-many": "node executioner.js -c _layeredLoaderMany",
+    "benchmark:layered-loader-single": "node executioner.js -c _layeredLoaderSingle",
+    "benchmark:async-cache-dedupe": "node executioner.js -c _asynccachededupe",
+    "benchmark-layered-loader": "npm run benchmark:layered-loader-single && npm run benchmark:layered-loader-many",
+    "benchmark-all": "npm run benchmark:async-cache-dedupe && npm run benchmark:layered-loader-many && npm run benchmark:layered-loader-single",
+    "combine-results": "node ../common/src/resultsCombinator.js -r _results -p 6",
+    "prettier": "prettier --write \\\\\\\"contestants/**/*.{js,ts}\\\\\\\" executioner.js"
+  }
+}

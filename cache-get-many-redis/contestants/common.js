@@ -1,4 +1,21 @@
 const { validateEqualArrays } = require("validation-utils/dist/lib/validation.helper");
+const Redis = require("ioredis");
+
+const redisOptions = {
+  host: 'localhost',
+  port: 6379,
+  password: 'sOmE_sEcUrE_pAsS',
+}
+const redis = new Redis(redisOptions)
+
+async function initContext() {
+  await redis.flushall()
+}
+
+async function closeContext() {
+  await redis.disconnect()
+}
+
 
 function generateIds(amount) {
   const result = []
@@ -14,7 +31,9 @@ function generateValues(ids) {
   })
 }
 
-const ids = generateIds(20000)
+const TTL = 5000
+
+const ids = generateIds(100)
 const values = generateValues(ids)
 
 async function validateAccuracy(executeFn) {
@@ -26,4 +45,8 @@ module.exports = {
   validateAccuracy,
   ids,
   generateValues,
+  initContext,
+  closeContext,
+  redis,
+  TTL
 };
