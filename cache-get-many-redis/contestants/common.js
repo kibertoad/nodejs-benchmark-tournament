@@ -20,7 +20,7 @@ async function closeContext() {
 function generateIds(amount) {
   const result = []
   for (let i = 1; i <= amount; i++) {
-    result.push(i)
+    result.push(i.toString())
   }
   return result
 }
@@ -32,6 +32,7 @@ function generateValues(ids) {
 }
 
 const TTL = 5000
+const MAX_ITEMS = 100000
 
 const ids = generateIds(100)
 const values = generateValues(ids)
@@ -44,9 +45,12 @@ async function validateAccuracy(executeFn) {
 module.exports = {
   validateAccuracy,
   ids,
+  MAX_ITEMS,
   generateValues,
   initContext,
   closeContext,
   redis,
-  TTL
+  redisOptions,
+  TTL,
+  values
 };

@@ -4,7 +4,7 @@ const { Loader, RedisCache } = require('layered-loader')
 const loader = new Loader({
   asyncCache: new RedisCache(redis, {
     ttlInMsecs: TTL,
-    json: true,
+    json: false,
   }),
   dataSources: [{
     get(key) {
