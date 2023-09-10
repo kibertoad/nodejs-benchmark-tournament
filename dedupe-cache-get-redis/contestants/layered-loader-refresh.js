@@ -1,8 +1,8 @@
 const { MAX_ITEMS, TTL, ELEMENT_COUNT, CONCURRENCY, ids, loadFn, redis } = require('./common')
-const { LoadingOperation, RedisCache } = require('layered-loader')
+const { Loader, RedisCache } = require('layered-loader')
 const { PromisePool } = require('@supercharge/promise-pool')
 
-const loadingOperation = new LoadingOperation({
+const loadingOperation = new Loader({
   asyncCache: new RedisCache(redis, {
     ttlInMsecs: TTL,
     ttlLeftBeforeRefreshInMsecs: Math.round(TTL / 4),
@@ -10,7 +10,7 @@ const loadingOperation = new LoadingOperation({
     ttlCacheSize: MAX_ITEMS,
     json: true,
   }),
-  loaders: [
+  dataSources: [
     {
       get(key, loadParams) {
         return loadFn(loadParams)
@@ -43,8 +43,12 @@ async function get(key) {
   return results[0]
 }
 
+async function destroyContext() {
+  await loadingOperation.close()
+}
 
 module.exports = {
   get,
   execute,
+  destroyContextLLRefresh: destroyContext,
 }

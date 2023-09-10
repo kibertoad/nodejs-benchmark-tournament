@@ -1,4 +1,4 @@
-const Redis = require("ioredis");
+const Redis = require('ioredis')
 
 const { validateEqual } = require('validation-utils')
 const { setTimeout } = require('timers/promises')
@@ -85,6 +85,7 @@ module.exports = {
   initContext,
   closeContext,
   redis,
+  redisOptions,
   loadFn,
   batchLoadFn,
   validateAccuracy,

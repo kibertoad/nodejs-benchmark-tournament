@@ -4,29 +4,31 @@
   "license": "MIT",
   "dependencies": {
     "@supercharge/promise-pool": "^2.4.0",
-    "async-cache-dedupe": "1.10.2",
+    "async-cache-dedupe": "1.12.0",
+    "cache-manager": "^5.2.3",
+    "cache-manager-ioredis-yet": "1.2.2",
     "dataloader": "2.2.2",
     "getopts": "^2.3.0",
-    "ioredis": "^5.3.1",
-    "layered-loader": "10.0.0",
+    "ioredis": "^5.3.2",
+    "layered-loader": "12.0.0-beta3",
     "photofinish": "^1.8.0",
-    "validation-utils": "^7.0.0"
+    "validation-utils": "^9.1.0"
   },
   "devDependencies": {
-    "prettier": "^2.2.1"
+    "prettier": "^3.0.3"
   },
   "scripts": {
-    "install-node": "nvm install 19.8.1 && nvm install 18.15.0 && nvm install 16.20.0",
+    "install-node": "nvm install 20.6.1 && nvm install 18.17.1 && nvm install 16.20.2",
     "docker:start": "docker-compose -f docker-compose.yml up --build -d redis && docker-compose -f docker-compose.yml up --build -d wait_for_redis",
     "docker:stop": "docker-compose -f docker-compose.yml down",
     "benchmark:layered-loader": "node executioner.js -c _layeredLoader",
     "benchmark:layered-loader-refresh": "node executioner.js -c _layeredLoaderRefresh",
     "benchmark:layered-loader-two-layer-refresh": "node executioner.js -c _layeredLoaderTwoLayerRefresh",
-    "benchmark:data-loader": "node executioner.js -c _dataLoader",
+    "benchmark:cache-manager": "node executioner.js -c _cacheManager",
     "benchmark:async-cache-dedupe": "node executioner.js -c _asyncCacheDedupe",
     "benchmark:no-dedupe": "node executioner.js -c _noDedupe",
     "benchmark-layered-loader": "npm run benchmark:layered-loader && npm run benchmark:layered-loader-refresh && npm run benchmark:layered-loader-two-layer-refresh",
-    "benchmark-all": "npm run benchmark:async-cache-dedupe && npm run benchmark:layered-loader && npm run benchmark:layered-loader-refresh && npm run benchmark:layered-loader-two-layer-refresh && npm run benchmark:no-dedupe",
+    "benchmark-all": "npm run benchmark:async-cache-dedupe && npm run benchmark:layered-loader && npm run benchmark:layered-loader-refresh && npm run benchmark:layered-loader-two-layer-refresh && npm run benchmark:cache-manager && npm run benchmark:no-dedupe",
     "combine-results": "node ../common/src/resultsCombinator.js -r _results -p 6",
     "prettier": "prettier --write \"contestants/**/*.{js,ts}\" executioner.js"
   }
