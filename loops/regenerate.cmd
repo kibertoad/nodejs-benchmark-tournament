@@ -14,7 +14,7 @@ call npm run benchmark-all
 call nvm use 16.20.2
 timeout /t 2
 call npm run benchmark-all
-call nvm use 18.17.1
+call nvm use 18.18.0
 timeout /t 2
 call npm run benchmark-all
 call nvm use 20.6.1
