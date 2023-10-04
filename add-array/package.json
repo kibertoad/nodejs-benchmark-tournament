@@ -11,7 +11,7 @@
     "prettier": "^3.0.3"
   },
   "scripts": {
-    "install-node": "nvm install 20.6.1 && nvm install 18.17.1 && nvm install 16.20.2 && nvm install 14.21.3",
+    "install-node": "nvm install 20.8.0 && nvm install 18.18.0 && nvm install 16.20.2 && nvm install 14.21.3",
     "benchmark-pushdestruct": "node ./executioner.js -c _pushdestruct",
     "benchmark-pushforeach": "node ./executioner.js -c _pushforeach",
     "benchmark-pushloop": "node ./executioner.js -c _pushloop",
