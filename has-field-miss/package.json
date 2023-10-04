@@ -11,7 +11,7 @@
     "prettier": "^2.2.1"
   },
   "scripts": {
-    "install-node": "nvm install 19.8.1 && nvm install 18.15.0 && nvm install 16.19.1 && nvm install 14.21.3 && nvm install 12.22.12 && nvm install 10.24.1",
+    "install-node": "nvm install 20.8.0 && nvm install 18.18.0 && nvm install 16.20.2 && nvm install 14.21.3 && nvm install 12.22.12 && nvm install 10.24.1",
     "benchmark-directFieldAccess": "node ./executioner.js -c _directFieldAccess",
     "benchmark-hasOwnProperty": "node ./executioner.js -c _hasOwnProperty",
     "benchmark-objectHasOwnProperty": "node ./executioner.js -c _objectHasOwnProperty",
