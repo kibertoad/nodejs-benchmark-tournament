@@ -7,7 +7,7 @@ const {
 } = require("./common");
 
 function testString(val) {
-  return /^application\/([a-z.-]+\+)?json/.test(val);
+  return /^application\/(?:[.a-z-]+\+)?json/.test(val);
 }
 
 function execute() {
