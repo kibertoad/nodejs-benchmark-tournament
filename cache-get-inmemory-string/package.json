@@ -1,0 +1,34 @@
+{
+  "name": "cache",
+  "version": "1.0.0",
+  "license": "MIT",
+  "dependencies": {
+    "async-cache-dedupe": "1.10.2",
+    "dataloader": "2.2.2",
+    "getopts": "^2.3.0",
+    "layered-loader": "10.0.0",
+    "toad-cache": "3.0.1",
+    "tiny-lru": "11.0.0",
+    "photofinish": "^1.8.0",
+    "validation-utils": "^7.0.0"
+  },
+  "devDependencies": {
+    "prettier": "^2.2.1"
+  },
+  "scripts": {
+    "install-node": "nvm install 20.8.0 && nvm install 18.18.0 && nvm install 16.20.2",
+    "benchmark:layered-loader-lru": "node executioner.js -c _layeredLoaderLru",
+    "benchmark:layered-loader-lru-object": "node executioner.js -c _layeredLoaderLruObject",
+    "benchmark:layered-loader-fifo": "node executioner.js -c _layeredLoaderFifo",
+    "benchmark:layered-loader-fifo-object": "node executioner.js -c _layeredLoaderFifoObject",
+    "benchmark:toad-cache": "node executioner.js -c _toadCacheLru",
+    "benchmark:toad-cache-map": "node executioner.js -c _toadCacheLruMap",
+    "benchmark:tiny-lru": "node executioner.js -c _tinyLru",
+    "benchmark:data-loader": "node executioner.js -c _dataLoader",
+    "benchmark:async-cache-dedupe": "node executioner.js -c _asyncCacheDedupe",
+    "benchmark-layered-loader": "npm run benchmark:layered-loader-lru && npm run benchmark:layered-loader-fifo && npm run benchmark:layered-loader-lru-object && npm run benchmark:layered-loader-fifo-object",
+    "benchmark-all": "npm run benchmark:async-cache-dedupe && npm run benchmark:data-loader && npm run benchmark:layered-loader-lru && npm run benchmark:layered-loader-fifo && npm run benchmark:layered-loader-lru-object && npm run benchmark:layered-loader-fifo-object && npm run benchmark:toad-cache && npm run benchmark:toad-cache-map && npm run benchmark:tiny-lru",
+    "combine-results": "node ../common/src/resultsCombinator.js -r _results -p 6",
+    "prettier": "prettier --write \\\\\\\"contestants/**/*.{js,ts}\\\\\\\" executioner.js"
+  }
+}
