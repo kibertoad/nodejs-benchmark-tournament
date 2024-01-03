@@ -19,7 +19,7 @@
     "prettier": "^3.0.3"
   },
   "scripts": {
-    "install-node": "nvm install 20.8.0 && nvm install 18.18.0 && nvm install 16.20.2",
+    "install-node": "nvm install 20.10.0 && nvm install 18.19.0 && nvm install 16.20.2",
     "docker:start": "docker-compose -f docker-compose.yml up --build -d redis && docker-compose -f docker-compose.yml up --build -d wait_for_redis",
     "docker:stop": "docker-compose -f docker-compose.yml down",
     "benchmark:layered-loader-many": "node executioner.js -c _layeredLoaderMany",

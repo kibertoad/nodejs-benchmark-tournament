@@ -11,7 +11,7 @@
     "prettier": "^2.2.1"
   },
   "scripts": {
-    "install-node": "nvm install 20.8.0 && nvm install 18.18.0 && nvm install 16.20.2 && nvm install 14.21.3 && nvm install 12.22.12 && nvm install 10.24.1",
+    "install-node": "nvm install 21.5.0 && nvm install 20.10.0 && nvm install 18.19.0 && nvm install 16.20.2",
     "benchmark-includes": "node ./executioner.js -c _includes",
     "benchmark-indexof": "node ./executioner.js -c _indexof",
     "benchmark-regex": "node ./executioner.js -c _regex",

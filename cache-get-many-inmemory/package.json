@@ -16,7 +16,7 @@
     "prettier": "^3.0.3"
   },
   "scripts": {
-    "install-node": "nvm install 20.8.0 && nvm install 18.18.0 && nvm install 16.20.2",
+    "install-node": "nvm install 20.10.0 && nvm install 18.19.0 && nvm install 16.20.2",
     "benchmark:layered-loader-lru-object": "node executioner.js -c _layeredLoaderLruObject",
     "benchmark:layered-loader-fifo-object": "node executioner.js -c _layeredLoaderFifoObject",
     "benchmark:data-loader": "node executioner.js -c _dataLoader",
