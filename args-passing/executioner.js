@@ -8,11 +8,11 @@ const { execute: spreadSpreadFn } = require("./contestants/spreadSpread");
 const { validateAccuracy } = require("./contestants/common");
 
 const contestants = {
-  _argApply: getMeasureFn("_argApply", argApplyFn),
-  _argSpread: getMeasureFn("_argSpread", argSpreadFn),
-  _copyApply: getMeasureFn("_copyApply", copyApplyFn),
-  _copySpread: getMeasureFn("_copySpread", copySpreadFn),
-  _spreadSpread: getMeasureFn("_spreadSpread", spreadSpreadFn),
+  _argApply: getMeasureFn("argApply", argApplyFn),
+  _argSpread: getMeasureFn("argSpread", argSpreadFn),
+  _copyApply: getMeasureFn("copyApply", copyApplyFn),
+  _copySpread: getMeasureFn("copySpread", copySpreadFn),
+  _spreadSpread: getMeasureFn("spreadSpread", spreadSpreadFn),
 };
 
 validateAccuracy(argApplyFn());
