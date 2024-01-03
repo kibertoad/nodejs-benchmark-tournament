@@ -17,7 +17,7 @@ const { validateAccuracy } = require("./contestants/common");
 
 const benchParams = {
   warmup: 300,
-  cycles: 500
+  cycles: 200
 }
 
 const contestants = {

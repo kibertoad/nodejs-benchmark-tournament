@@ -1,5 +1,5 @@
 const { MAX_ITEMS, TTL, ELEMENT_COUNT } = require("./common");
-const { LoadingOperation } = require('layered-loader')
+const { Loader } = require('layered-loader')
 
 function createCache() {
   return new LoadingOperation({
@@ -8,7 +8,7 @@ function createCache() {
       maxItems: MAX_ITEMS,
       ttlInMsecs: TTL,
     },
-    loaders: [{
+    dataSources: [{
       get(key) {
         return Promise.resolve({
           id: key

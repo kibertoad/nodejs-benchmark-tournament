@@ -3,20 +3,20 @@
   "version": "1.0.0",
   "license": "MIT",
   "dependencies": {
-    "async-cache-dedupe": "1.10.2",
+    "async-cache-dedupe": "2.0.0",
     "dataloader": "2.2.2",
     "getopts": "^2.3.0",
-    "layered-loader": "10.0.0",
+    "layered-loader": "12.5.0",
     "photofinish": "^1.8.0",
-    "toad-cache": "3.0.1",
-    "tiny-lru": "11.0.0",
-    "validation-utils": "^7.0.0"
+    "toad-cache": "3.4.1",
+    "tiny-lru": "11.2.5",
+    "validation-utils": "^9.1.0"
   },
   "devDependencies": {
     "prettier": "^2.2.1"
   },
   "scripts": {
-    "install-node": "nvm install 20.10.0 && nvm install 18.19.0 && nvm install 16.20.2",
+    "install-node": "nvm install 21.5.0 && nvm install 20.10.0 && nvm install 18.19.0 && nvm install 16.20.2",
     "benchmark:layered-loader-lru": "node executioner.js -c _layeredLoaderLru",
     "benchmark:layered-loader-lru-object": "node executioner.js -c _layeredLoaderLruObject",
     "benchmark:layered-loader-fifo": "node executioner.js -c _layeredLoaderFifo",

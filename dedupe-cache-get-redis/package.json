@@ -4,13 +4,13 @@
   "license": "MIT",
   "dependencies": {
     "@supercharge/promise-pool": "^2.4.0",
-    "async-cache-dedupe": "1.12.0",
-    "cache-manager": "^5.2.3",
+    "async-cache-dedupe": "2.0.0",
+    "cache-manager": "5.3.2",
     "cache-manager-ioredis-yet": "1.2.2",
     "dataloader": "2.2.2",
     "getopts": "^2.3.0",
     "ioredis": "^5.3.2",
-    "layered-loader": "12.0.0-beta3",
+    "layered-loader": "12.5.0",
     "photofinish": "^1.8.0",
     "validation-utils": "^9.1.0"
   },
@@ -18,7 +18,7 @@
     "prettier": "^3.0.3"
   },
   "scripts": {
-    "install-node": "nvm install 20.10.0 && nvm install 18.19.0 && nvm install 16.20.2",
+    "install-node": "nvm install 21.5.0 && nvm install 20.10.0 && nvm install 18.19.0 && nvm install 16.20.2",
     "docker:start": "docker-compose -f docker-compose.yml up --build -d redis && docker-compose -f docker-compose.yml up --build -d wait_for_redis",
     "docker:stop": "docker-compose -f docker-compose.yml down",
     "benchmark:layered-loader": "node executioner.js -c _layeredLoader",

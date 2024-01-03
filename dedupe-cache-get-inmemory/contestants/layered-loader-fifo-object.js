@@ -1,14 +1,14 @@
 const { MAX_ITEMS, TTL, ELEMENT_COUNT, CONCURRENCY, ids, loadFn } = require('./common')
-const { LoadingOperation } = require('layered-loader')
+const { Loader } = require('layered-loader')
 const { PromisePool } = require('@supercharge/promise-pool')
 
-const loadingOperation = new LoadingOperation({
+const loadingOperation = new Loader({
   inMemoryCache: {
     cacheType: 'fifo-object',
     maxItems: MAX_ITEMS,
     ttlInMsecs: TTL,
   },
-  loaders: [
+  dataSources: [
     {
       get(key, loadParams) {
         return loadFn(loadParams)

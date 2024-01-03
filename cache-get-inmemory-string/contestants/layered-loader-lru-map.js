@@ -1,13 +1,13 @@
 const { MAX_ITEMS, TTL, ELEMENT_COUNT } = require("./common");
-const { LoadingOperation } = require('layered-loader')
+const { Loader } = require('layered-loader')
 
-const loadingOperation = new LoadingOperation({
+const loadingOperation = new Loader({
   inMemoryCache: {
     cacheType: 'lru-map',
     maxItems: MAX_ITEMS,
     ttlInMsecs: TTL,
   },
-  loaders: [{
+  dataSources: [{
     get(key) {
       return Promise.resolve({
         id: key
