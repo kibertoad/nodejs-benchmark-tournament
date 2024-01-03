@@ -4,17 +4,17 @@
   "license": "MIT",
   "dependencies": {
     "getopts": "^2.2.5",
-    "js2xmlparser": "^4.0.1",
+    "js2xmlparser": "^5.0.0",
     "photofinish": "^1.8.0",
-    "validation-utils": "^6.0.0",
-    "ltx": "^2.9.2",
+    "validation-utils": "^9.1.0",
+    "ltx": "^3.0.0",
     "xml": "^1.0.1",
-    "xml2js": "^0.4.23",
-    "xmlbuilder2": "^2.1.7",
+    "xml2js": "^0.6.2",
+    "xmlbuilder2": "^3.1.1",
     "xml-js": "^1.6.11"
   },
   "devDependencies": {
-    "prettier": "^2.2.1"
+    "prettier": "^3.0.3"
   },
   "scripts": {
     "benchmark-ltx": "node ./executioner.js -c _ltx",
