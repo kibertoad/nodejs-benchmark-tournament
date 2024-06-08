@@ -2,7 +2,7 @@ const { MAX_ITEMS, TTL, ELEMENT_COUNT } = require("./common");
 const { Loader } = require('layered-loader')
 
 function createCache() {
-  return new LoadingOperation({
+  return new Loader({
     inMemoryCache: {
       cacheType: 'fifo-object',
       maxItems: MAX_ITEMS,
