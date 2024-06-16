@@ -7,9 +7,10 @@
     "dataloader": "2.2.2",
     "getopts": "^2.3.0",
     "layered-loader": "12.5.0",
-    "toad-cache": "3.4.1",
-    "tiny-lru": "11.2.5",
+    "lru-cache": "^10.2.2",
     "photofinish": "^1.8.0",
+    "tiny-lru": "11.2.5",
+    "toad-cache": "3.4.1",
     "validation-utils": "^7.0.0"
   },
   "devDependencies": {
@@ -23,11 +24,12 @@
     "benchmark:layered-loader-fifo-object": "node executioner.js -c _layeredLoaderFifoObject",
     "benchmark:toad-cache": "node executioner.js -c _toadCacheLru",
     "benchmark:toad-cache-map": "node executioner.js -c _toadCacheLruMap",
+    "benchmark:lru-cache": "node executioner.js -c _lruCache",
     "benchmark:tiny-lru": "node executioner.js -c _tinyLru",
     "benchmark:data-loader": "node executioner.js -c _dataLoader",
     "benchmark:async-cache-dedupe": "node executioner.js -c _asyncCacheDedupe",
     "benchmark-layered-loader": "npm run benchmark:layered-loader-lru && npm run benchmark:layered-loader-fifo && npm run benchmark:layered-loader-lru-object && npm run benchmark:layered-loader-fifo-object",
-    "benchmark-all": "npm run benchmark:async-cache-dedupe && npm run benchmark:data-loader && npm run benchmark:layered-loader-lru && npm run benchmark:layered-loader-fifo && npm run benchmark:layered-loader-lru-object && npm run benchmark:layered-loader-fifo-object && npm run benchmark:toad-cache && npm run benchmark:toad-cache-map && npm run benchmark:tiny-lru",
+    "benchmark-all": "npm run benchmark:async-cache-dedupe && npm run benchmark:data-loader && npm run benchmark:layered-loader-lru && npm run benchmark:layered-loader-fifo && npm run benchmark:layered-loader-lru-object && npm run benchmark:layered-loader-fifo-object && npm run benchmark:toad-cache && npm run benchmark:toad-cache-map && npm run benchmark:lru-cache && npm run benchmark:tiny-lru",
     "combine-results": "node ../common/src/resultsCombinator.js -r _results -p 6",
     "prettier": "prettier --write \\\\\\\"contestants/**/*.{js,ts}\\\\\\\" executioner.js"
   }
