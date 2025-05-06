@@ -15,7 +15,8 @@
     "benchmark-includes": "node ./executioner.js -c _includes",
     "benchmark-indexof": "node ./executioner.js -c _indexof",
     "benchmark-regex": "node ./executioner.js -c _regex",
-    "benchmark-all": "npm run benchmark-includes && npm run benchmark-indexof && npm run benchmark-regex",
+    "benchmark-regexcached": "node ./executioner.js -c _regexcached",
+    "benchmark-all": "npm run benchmark-includes && npm run benchmark-indexof && npm run benchmark-regex && npm run benchmark-regexcached",
     "combine-results": "node ../common/src/resultsCombinator.js -r _results -p 6",
     "prettier": "prettier --write \"contestants/**/*.{js,ts}\" executioner.js"
   }
